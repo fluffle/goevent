@@ -151,18 +151,18 @@ func TestSimpleDispatch(t *testing.T) {
 func TestParallelDispatch(t *testing.T) {
 	r := NewRegistry()
 	// ensure we have enough of a buffer that all sends complete
-	out := make(chan int, 5)
+	out := make(chan time.Duration, 5)
 	// handler factory :-)
-	factory := func(t int) Handler {
+	factory := func(t time.Duration) Handler {
 		return NewHandler(func(ev ...interface{}) {
 			// t * 10ms sleep
-			time.Sleep(int64(t * 1e7))
+			time.Sleep(10 * t * time.Millisecond)
 			out <- t
 		})
 	}
 
 	// create some handlers and send an event to them
-	for _, t := range []int{5, 11, 2, 15, 8} {
+	for _, t := range []time.Duration{5, 11, 2, 15, 8} {
 		r.AddHandler(factory(t), "send")
 	}
 	r.Dispatch("send")
@@ -189,18 +189,18 @@ func TestSerialDispatch(t *testing.T) {
 	r := NewRegistry()
 	r.Serial()
 	// ensure we have enough of a buffer that all sends complete
-	out := make(chan int, 5)
+	out := make(chan time.Duration, 5)
 	// handler factory :-)
-	factory := func(t int) Handler {
+	factory := func(t time.Duration) Handler {
 		return NewHandler(func(ev ...interface{}) {
 			// t * 10ms sleep
-			time.Sleep(int64(t * 1e7))
+			time.Sleep(10 * t * time.Millisecond)
 			out <- t
 		})
 	}
 
 	// create some handlers and send an event to them
-	for _, t := range []int{5, 11, 2, 15, 8} {
+	for _, t := range []time.Duration{5, 11, 2, 15, 8} {
 		r.AddHandler(factory(t), "send")
 	}
 	r.Dispatch("send")
