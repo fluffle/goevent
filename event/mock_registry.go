@@ -29,11 +29,15 @@ func (_m *MockHandler) EXPECT() *_MockHandlerRecorder {
 }
 
 func (_m *MockHandler) Run(_param0 ...interface{}) {
-	_m.ctrl.Call(_m, "Run", _param0)
+	_s := []interface{}{}
+	for _, _x := range _param0 {
+		_s = append(_s, _x)
+	}
+	_m.ctrl.Call(_m, "Run", _s...)
 }
 
 func (_mr *_MockHandlerRecorder) Run(arg0 ...interface{}) *gomock.Call {
-	return _mr.mock.ctrl.RecordCall(_mr.mock, "Run", arg0)
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "Run", arg0...)
 }
 
 func (_m *MockHandler) Id() HandlerID {
@@ -68,11 +72,16 @@ func (_m *MockEventDispatcher) EXPECT() *_MockEventDispatcherRecorder {
 }
 
 func (_m *MockEventDispatcher) Dispatch(name string, ev ...interface{}) {
-	_m.ctrl.Call(_m, "Dispatch", name, ev)
+	_s := []interface{}{name}
+	for _, _x := range ev {
+		_s = append(_s, _x)
+	}
+	_m.ctrl.Call(_m, "Dispatch", _s...)
 }
 
 func (_mr *_MockEventDispatcherRecorder) Dispatch(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
-	return _mr.mock.ctrl.RecordCall(_mr.mock, "Dispatch", arg0, arg1)
+	_s := append([]interface{}{arg0}, arg1...)
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "Dispatch", _s...)
 }
 
 // Mock of EventRegistry interface
@@ -97,27 +106,42 @@ func (_m *MockEventRegistry) EXPECT() *_MockEventRegistryRecorder {
 }
 
 func (_m *MockEventRegistry) AddHandler(h Handler, names ...string) {
-	_m.ctrl.Call(_m, "AddHandler", h, names)
+	_s := []interface{}{h}
+	for _, _x := range names {
+		_s = append(_s, _x)
+	}
+	_m.ctrl.Call(_m, "AddHandler", _s...)
 }
 
-func (_mr *_MockEventRegistryRecorder) AddHandler(arg0 interface{}, arg1 ...string) *gomock.Call {
-	return _mr.mock.ctrl.RecordCall(_mr.mock, "AddHandler", arg0, arg1)
+func (_mr *_MockEventRegistryRecorder) AddHandler(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
+	_s := append([]interface{}{arg0}, arg1...)
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "AddHandler", _s...)
 }
 
 func (_m *MockEventRegistry) DelHandler(h Handler, names ...string) {
-	_m.ctrl.Call(_m, "DelHandler", h, names)
+	_s := []interface{}{h}
+	for _, _x := range names {
+		_s = append(_s, _x)
+	}
+	_m.ctrl.Call(_m, "DelHandler", _s...)
 }
 
-func (_mr *_MockEventRegistryRecorder) DelHandler(arg0 interface{}, arg1 ...string) *gomock.Call {
-	return _mr.mock.ctrl.RecordCall(_mr.mock, "DelHandler", arg0, arg1)
+func (_mr *_MockEventRegistryRecorder) DelHandler(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
+	_s := append([]interface{}{arg0}, arg1...)
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "DelHandler", _s...)
 }
 
 func (_m *MockEventRegistry) Dispatch(name string, ev ...interface{}) {
-	_m.ctrl.Call(_m, "Dispatch", name, ev)
+	_s := []interface{}{name}
+	for _, _x := range ev {
+		_s = append(_s, _x)
+	}
+	_m.ctrl.Call(_m, "Dispatch", _s...)
 }
 
 func (_mr *_MockEventRegistryRecorder) Dispatch(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
-	return _mr.mock.ctrl.RecordCall(_mr.mock, "Dispatch", arg0, arg1)
+	_s := append([]interface{}{arg0}, arg1...)
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "Dispatch", _s...)
 }
 
 func (_m *MockEventRegistry) ClearEvents(name string) {
