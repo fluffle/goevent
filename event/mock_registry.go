@@ -4,7 +4,7 @@
 package event
 
 import (
-	gomock "gomock.googlecode.com/hg/gomock"
+	gomock "code.google.com/p/gomock/gomock"
 )
 
 // Mock of Handler interface
@@ -24,27 +24,28 @@ func NewMockHandler(ctrl *gomock.Controller) *MockHandler {
 	return mock
 }
 
-func (m *MockHandler) EXPECT() *_MockHandlerRecorder {
-	return m.recorder
+func (_m *MockHandler) EXPECT() *_MockHandlerRecorder {
+	return _m.recorder
 }
 
-func (m *MockHandler) Run(_param0 ...interface{}) {
-	m.ctrl.Call(m, "Run", _param0)
+func (_m *MockHandler) Run(_param0 ...interface{}) {
+	_m.ctrl.Call(_m, "Run", _param0)
 }
 
-func (mr *_MockHandlerRecorder) Run(arg0 ...interface{}) *gomock.Call {
-	return mr.mock.ctrl.RecordCall(mr.mock, "Run", arg0)
+func (_mr *_MockHandlerRecorder) Run(arg0 ...interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "Run", arg0)
 }
 
-func (m *MockHandler) Id() HandlerID {
-	ret := m.ctrl.Call(m, "Id")
+func (_m *MockHandler) Id() HandlerID {
+	ret := _m.ctrl.Call(_m, "Id")
 	ret0, _ := ret[0].(HandlerID)
 	return ret0
 }
 
-func (mr *_MockHandlerRecorder) Id() *gomock.Call {
-	return mr.mock.ctrl.RecordCall(mr.mock, "Id")
+func (_mr *_MockHandlerRecorder) Id() *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "Id")
 }
+
 // Mock of EventDispatcher interface
 type MockEventDispatcher struct {
 	ctrl     *gomock.Controller
@@ -62,17 +63,18 @@ func NewMockEventDispatcher(ctrl *gomock.Controller) *MockEventDispatcher {
 	return mock
 }
 
-func (m *MockEventDispatcher) EXPECT() *_MockEventDispatcherRecorder {
-	return m.recorder
+func (_m *MockEventDispatcher) EXPECT() *_MockEventDispatcherRecorder {
+	return _m.recorder
 }
 
-func (m *MockEventDispatcher) Dispatch(name string, ev ...interface{}) {
-	m.ctrl.Call(m, "Dispatch", name, ev)
+func (_m *MockEventDispatcher) Dispatch(name string, ev ...interface{}) {
+	_m.ctrl.Call(_m, "Dispatch", name, ev)
 }
 
-func (mr *_MockEventDispatcherRecorder) Dispatch(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
-	return mr.mock.ctrl.RecordCall(mr.mock, "Dispatch", arg0, arg1)
+func (_mr *_MockEventDispatcherRecorder) Dispatch(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "Dispatch", arg0, arg1)
 }
+
 // Mock of EventRegistry interface
 type MockEventRegistry struct {
 	ctrl     *gomock.Controller
@@ -90,38 +92,38 @@ func NewMockEventRegistry(ctrl *gomock.Controller) *MockEventRegistry {
 	return mock
 }
 
-func (m *MockEventRegistry) EXPECT() *_MockEventRegistryRecorder {
-	return m.recorder
+func (_m *MockEventRegistry) EXPECT() *_MockEventRegistryRecorder {
+	return _m.recorder
 }
 
-func (m *MockEventRegistry) AddHandler(h Handler, names ...string) {
-	m.ctrl.Call(m, "AddHandler", h, names)
+func (_m *MockEventRegistry) AddHandler(h Handler, names ...string) {
+	_m.ctrl.Call(_m, "AddHandler", h, names)
 }
 
-func (mr *_MockEventRegistryRecorder) AddHandler(arg0 interface{}, arg1 ...string) *gomock.Call {
-	return mr.mock.ctrl.RecordCall(mr.mock, "AddHandler", arg0, arg1)
+func (_mr *_MockEventRegistryRecorder) AddHandler(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "AddHandler", arg0, arg1)
 }
 
-func (m *MockEventRegistry) DelHandler(h Handler, names ...string) {
-	m.ctrl.Call(m, "DelHandler", h, names)
+func (_m *MockEventRegistry) DelHandler(h Handler, names ...string) {
+	_m.ctrl.Call(_m, "DelHandler", h, names)
 }
 
-func (mr *_MockEventRegistryRecorder) DelHandler(arg0 interface{}, arg1 ...string) *gomock.Call {
-	return mr.mock.ctrl.RecordCall(mr.mock, "DelHandler", arg0, arg1)
+func (_mr *_MockEventRegistryRecorder) DelHandler(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "DelHandler", arg0, arg1)
 }
 
-func (m *MockEventRegistry) Dispatch(name string, ev ...interface{}) {
-	m.ctrl.Call(m, "Dispatch", name, ev)
+func (_m *MockEventRegistry) Dispatch(name string, ev ...interface{}) {
+	_m.ctrl.Call(_m, "Dispatch", name, ev)
 }
 
-func (mr *_MockEventRegistryRecorder) Dispatch(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
-	return mr.mock.ctrl.RecordCall(mr.mock, "Dispatch", arg0, arg1)
+func (_mr *_MockEventRegistryRecorder) Dispatch(arg0 interface{}, arg1 ...interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "Dispatch", arg0, arg1)
 }
 
-func (m *MockEventRegistry) ClearEvents(name string) {
-	m.ctrl.Call(m, "ClearEvents", name)
+func (_m *MockEventRegistry) ClearEvents(name string) {
+	_m.ctrl.Call(_m, "ClearEvents", name)
 }
 
-func (mr *_MockEventRegistryRecorder) ClearEvents(arg0 interface{}) *gomock.Call {
-	return mr.mock.ctrl.RecordCall(mr.mock, "ClearEvents", arg0)
+func (_mr *_MockEventRegistryRecorder) ClearEvents(arg0 interface{}) *gomock.Call {
+	return _mr.mock.ctrl.RecordCall(_mr.mock, "ClearEvents", arg0)
 }
